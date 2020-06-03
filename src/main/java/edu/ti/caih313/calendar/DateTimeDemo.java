@@ -2,48 +2,52 @@ package edu.ti.caih313.calendar;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Set;
 
 public class DateTimeDemo {
     public static void main(String... args) {
-//        LocalTime justNow = LocalTime.now();
-//        System.out.println("justNow is " + justNow);
-//
-//        System.out.printf("Apr 15, 1994 @ 11:30am: %s%n",
-//                LocalDateTime.of(1994, Month.APRIL, 15, 11, 30));
-//
-//        System.out.printf("now (from Instant at default timezone): %s%n",
-//                LocalDateTime.ofInstant(Instant.now(), ZoneId.systemDefault()));
-//
-//        System.out.printf("now (from Instant at Jerusalem timezone): %s%n",
-//                LocalDateTime.ofInstant(Instant.now(), ZoneId.of("Asia/Jerusalem")));
-//
-//        System.out.printf("6 months from now: %s%n",
-//                LocalDateTime.now().plusMonths(6));
-//
-//        System.out.printf("6 months ago: %s%n",
-//                LocalDateTime.now().minusMonths(6));
+        LocalTime justNow = LocalTime.now();
+        System.out.println("justNow is " + justNow);
 
-//        Set<String> allZones = ZoneId.getAvailableZoneIds();
-//        LocalDateTime dt = LocalDateTime.now();
-//
-//        // Create a List using the set of zones and sort it.
-//        List<String> zoneList = new ArrayList<String>(allZones);
-//        Collections.sort(zoneList);
-//
-//        for (String s : zoneList) {
-//            ZoneId zone = ZoneId.of(s);
-//            ZonedDateTime zdt = dt.atZone(zone);
-//            ZoneOffset offset = zdt.getOffset();
-//            int secondsOfHour = offset.getTotalSeconds() % (60 * 60);
-//            String out = String.format("%-35s %10s%n", zone, offset);
-//
-//            // Write only time zones that do not have a whole hour offset
-//            // to standard out.
-//            if (secondsOfHour != 0) {
-//                System.out.printf(out);
-//            }
-//        }
-//
+        System.out.printf("Apr 15, 1994 @ 11:30am: %s%n",
+                LocalDateTime.of(1994, Month.APRIL, 15, 11, 30));
+
+        System.out.printf("now (from Instant at default timezone): %s%n",
+                LocalDateTime.ofInstant(Instant.now(), ZoneId.systemDefault()));
+
+        System.out.printf("now (from Instant at Jerusalem timezone): %s%n",
+                LocalDateTime.ofInstant(Instant.now(), ZoneId.of("Asia/Jerusalem")));
+
+        System.out.printf("6 months from now: %s%n",
+                LocalDateTime.now().plusMonths(6));
+
+        System.out.printf("6 months ago: %s%n",
+                LocalDateTime.now().minusMonths(6));
+
+        Set<String> allZones = ZoneId.getAvailableZoneIds();
+        LocalDateTime dt = LocalDateTime.now();
+
+        // Create a List using the set of zones and sort it.
+        List<String> zoneList = new ArrayList<String>(allZones);
+        Collections.sort(zoneList);
+
+        for (String s : zoneList) {
+            ZoneId zone = ZoneId.of(s);
+            ZonedDateTime zdt = dt.atZone(zone);
+            ZoneOffset offset = zdt.getOffset();
+            int secondsOfHour = offset.getTotalSeconds() % (60 * 60);
+            String out = String.format("%-35s %10s%n", zone, offset);
+
+            // Write only time zones that do not have a whole hour offset
+            // to standard out.
+            if (secondsOfHour != 0) {
+                System.out.printf(out);
+            }
+        }
+
         DateTimeFormatter format = DateTimeFormatter.ofPattern("MMM d yyyy  hh:mm a");
 
         // Leaving from San Francisco on July 20, 2013, at 7:30 p.m.
