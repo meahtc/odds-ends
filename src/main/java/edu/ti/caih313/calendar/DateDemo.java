@@ -1,13 +1,10 @@
 package edu.ti.caih313.calendar;
 
 import java.time.DayOfWeek;
-import java.time.Duration;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.temporal.TemporalAdjuster;
 import java.time.temporal.TemporalAdjusters;
-import java.time.temporal.TemporalAmount;
-import java.time.temporal.WeekFields;
 
 public class DateDemo {
     public static void main(String... args) {
